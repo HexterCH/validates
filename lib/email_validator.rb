@@ -5,6 +5,10 @@ class EmailValidator < ActiveModel::EachValidator
     end
   end
 
+  def self.valid?(value)
+    email_format_valid?(value.to_s)
+  end
+
   MAX_EMAIL_LENGTH = 254
   MAX_DOMAIN_LENGTH = 255
   MAX_DOMAIN_PART_LENGTH = 64
